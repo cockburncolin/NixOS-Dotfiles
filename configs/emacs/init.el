@@ -42,7 +42,7 @@
 
 (global-set-key (kbd "<leader> b p") 'previous-buffer)
 (global-set-key (kbd "<leader> b n") 'next-buffer)
-(global-set-key (kbd "<leader> b k") 'kill-this-buffer)
+(global-set-key (kbd "<leader> b k") 'kill-current-buffer)
 (global-set-key (kbd "<leader> e") 'elisp-eval-region-or-buffer)
 
 ;; LSP support

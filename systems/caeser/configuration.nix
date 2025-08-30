@@ -1,6 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
   pkgs,
@@ -8,7 +5,6 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -19,14 +15,7 @@
     virt.enable = true;
   };
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   networking.hostName = "caeser"; # Define your hostname.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Vancouver";
@@ -37,37 +26,19 @@
   # Configure keymap in X11
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users = {
-    users.colin = {
-      isNormalUser = true;
-      description = "Colin Cockburn";
-      extraGroups = ["networkmanager" "wheel" "plugdev"];
-      packages = with pkgs; [];
-    };
-  };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
-  };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    brave
     fenix.complete.toolchain
+    clang
+    gcc
+    git
     gnumake
     go
     gopls
-    gcc
-    ghostty
-    git
-    kitty
     neovim
-    wofi
   ];
-
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -1,5 +1,9 @@
-{config, lib, pkgs, ...}:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.custom.windowManager;
 in {
   options.custom.windowManager = {
@@ -14,11 +18,10 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
-      brave
       ghostty
       wofi
     ];
-    
+
     fonts.packages = with pkgs; [
       nerd-fonts.fira-code
       nerd-fonts.inconsolata

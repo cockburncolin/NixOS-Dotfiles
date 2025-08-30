@@ -12,7 +12,7 @@ in {
     services.emacs = {
       enable = true;
       defaultEditor = true;
-      startWithGraphical = true;
+      # startWithGraphical = true;
       install = true;
     };
   };
