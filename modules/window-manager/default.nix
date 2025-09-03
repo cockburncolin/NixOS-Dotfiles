@@ -11,15 +11,21 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    services.displayManager.gdm.enable = true;
-    programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
+    services = {
+      displayManager.gdm.enable = true;
+      desktopManager.plasma6.enable = true;
     };
+
+    environment.plasma6.excludePackages = with pkgs.kdePackages; [
+      kate
+      khelpcenter
+      plasma-browser-integration
+      konsole
+      elisa
+    ];
 
     environment.systemPackages = with pkgs; [
       ghostty
-      wofi
     ];
 
     fonts.packages = with pkgs; [

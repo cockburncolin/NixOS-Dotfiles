@@ -20,7 +20,8 @@
     findNixFiles = dir: let
       entries = builtins.readDir dir;
     in
-      lib.flatten (lib.mapAttrsToList (
+      lib.flatten (
+        lib.mapAttrsToList (
           name: type:
             if type == "directory"
             then findNixFiles (dir + "/${name}")
@@ -28,7 +29,8 @@
             then [(dir + "/${name}")]
             else []
         )
-        entries);
+        entries
+      );
   in {
     formatter.x86_64-linux = pkgs.alejandra;
     nixosConfigurations.caeser = lib.nixosSystem {

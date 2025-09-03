@@ -29,7 +29,7 @@
   (setq evil-split-window-below t)
   :config
   (evil-mode)
-  (evil-set-leader '(normal treemacs dashboard) (kbd "SPC")))
+  (evil-set-leader '(normal treemacs dashboard emacs) " "))
 
 (use-package evil-collection
   :after evil
@@ -44,6 +44,7 @@
 (global-set-key (kbd "<leader> b n") 'next-buffer)
 (global-set-key (kbd "<leader> b k") 'kill-current-buffer)
 (global-set-key (kbd "<leader> e") 'elisp-eval-region-or-buffer)
+(global-set-key (kbd "<leader> .") 'find-file)
 
 ;; LSP support
 (use-package eglot
@@ -118,6 +119,8 @@
 (setq backup-directory-alist
       `(("." . ,(expand-file-name "tmp/backups/" user-emacs-directory))))
 
+(setq vc-follow-symlinks nil)
+
 (use-package eldoc
   :init (global-eldoc-mode))
 
@@ -179,6 +182,9 @@
 (setq text-mode-ispell-word-completion nil)
 (setq read-extended-command-predicate #'command-completion-default-include-p)
 ;; Modes
+(use-package nix-mode
+  :mode "\\.nix\\'")
+
 ;; treesitter modes
 (use-package treesit-auto
   :custom (treesit-auto-install 'prompt)
@@ -186,16 +192,17 @@
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
 
-(use-package nix-ts-mode
-  :config
-  (add-to-list 'treesit-auto-recipe-list
-	       (make-treesit-auto-recipe
-		:lang 'nix
-		:ts-mode 'nix-ts-mode
-		:url "https://github.com/nix-community/tree-sitter-nix"
-		:revision "master"
-		:source-dir "src"
-		:ext "'\\.nix\\'")))
+(setq nix-ts-recipe
+      (make-treesit-auto-recipe
+       :lang 'nix
+       :ts-mode 'nix-ts-mode
+       :remap '(nix-mode)
+       :url "https://github.com/nix-community/tree-sitter-nix"
+       :revision "master"
+       :source-dir "src"
+       :ext "\\.nix\\'"))
+
+(add-to-list 'treesit-auto-recipe-list nix-ts-recipe)
 
 (use-package geiser
   :config

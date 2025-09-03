@@ -9,6 +9,7 @@
   ];
 
   custom = {
+    developmentUtils.enable = true;
     emacs.enable = true;
     games.enable = true;
     windowManager.enable = true;
@@ -23,20 +24,7 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  # Configure keymap in X11
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    fenix.complete.toolchain
-    clang
-    gcc
-    git
-    gnumake
-    go
-    gopls
     neovim
   ];
 

@@ -12,7 +12,7 @@
       packages = with pkgs; [
         brave
         gh
-        evince
+        just
       ];
     };
   };
