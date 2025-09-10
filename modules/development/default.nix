@@ -16,15 +16,12 @@ in {
       gcc
       git
       gnumake
-      go
-      gopls
       lazygit
+      man-pages
+      man-pages-posix
       nil
-      jdt-language-server
+      tealdeer
     ];
-
-    programs.java = {
-      enable = true;
-    };
+    documentation.dev.enable = true;
   };
 }
