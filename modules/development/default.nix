@@ -12,6 +12,7 @@ in {
     environment.systemPackages = with pkgs; [
       alejandra
       clang
+      direnv
       fenix.complete.toolchain
       gcc
       git
