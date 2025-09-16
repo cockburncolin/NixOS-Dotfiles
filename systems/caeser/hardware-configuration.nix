@@ -28,6 +28,13 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
+  fileSystems."/mnt/Media" = let
+    host = "192.168.1.10";
+  in {
+    device = "${host}/Media";
+    fsType = "nfs";
+  };
+
   swapDevices = [
     {device = "/dev/disk/by-uuid/8dfe2f89-8305-4440-9ba4-f60a750c9f37";}
   ];
