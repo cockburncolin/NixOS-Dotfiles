@@ -1,7 +1,12 @@
+deploy-dots:
+	stow -d ./configs -t $HOME --adopt --dotfiles -S .
+
 format:
 	nix fmt .
+
 rebuild:
 	sudo nixos-rebuild switch --flake . --upgrade
+
 update:
 	nix flake update --commit-lock-file
 
