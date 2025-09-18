@@ -13,6 +13,7 @@
         brave
         gh
         just
+	stow
       ];
     };
   };

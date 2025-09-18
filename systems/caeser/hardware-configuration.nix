@@ -31,7 +31,7 @@
   fileSystems."/mnt/Media" = let
     host = "192.168.1.10";
   in {
-    device = "${host}/Media";
+    device = "${host}:/volume2/Media";
     fsType = "nfs";
   };
 
