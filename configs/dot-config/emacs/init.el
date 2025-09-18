@@ -139,6 +139,20 @@
 
 (electric-pair-mode 1) ;; Turns on automatic parens pairing
 (setq indent-tabs-mode nil) ;; use spaces instead of tabs
+(setq-default electric-indent-inhibit t)
+(setq backward-delete-char-untabify-method 'hungry)
+(setq-default evil-shift-width 4)
+
+(use-package indent-bars
+  :custom
+  (indent-bars-treesit-support t)
+  :hook (prog-mode . indent-bars-mode))
+
+(use-package outline-indent
+  :commands outline-indent-minor-mode
+  :custom
+  (outline-indent-ellipsis " ▼")
+  :hook (prog-mode . outline-indent-minor-mode))
 
 ;; show hex values as colors (ex. #ffffff)
 (use-package rainbow-mode
@@ -147,7 +161,7 @@
 
 ;; color match parenthesis for easy visual viewing
 (use-package rainbow-delimiters
-  :hook '(prog-mode . rainbow-delimiters-mode))
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package which-key
   :config (which-key-mode 1))
