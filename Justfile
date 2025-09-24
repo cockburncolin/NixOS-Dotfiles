@@ -1,5 +1,5 @@
 deploy-dots:
-	stow -d ./configs -t $HOME --dotfiles -S .
+	stow -d ./configs -t $HOME --dotfiles -R .
 
 format:
 	nix fmt .
