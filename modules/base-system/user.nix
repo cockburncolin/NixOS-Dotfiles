@@ -13,7 +13,7 @@
         brave
         gh
         just
-	stow
+        stow
       ];
     };
   };

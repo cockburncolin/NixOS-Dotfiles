@@ -14,6 +14,10 @@ in {
     services = {
       displayManager.gdm.enable = true;
       desktopManager.plasma6.enable = true;
+      xserver.xkb = {
+        layout = "us";
+        variant = "";
+      };
     };
 
     environment.plasma6.excludePackages = with pkgs.kdePackages; [
@@ -25,7 +29,10 @@ in {
     ];
 
     environment.systemPackages = with pkgs; [
+	  mpv
       ghostty
+      handbrake
+      makemkv
     ];
 
     fonts.packages = with pkgs; [
@@ -33,9 +40,7 @@ in {
       nerd-fonts.inconsolata
     ];
 
-    services.xserver.xkb = {
-      layout = "us";
-      variant = "";
-    };
+    # needed for blu-ray drive
+    boot.kernelModules = ["sg"];
   };
 }
