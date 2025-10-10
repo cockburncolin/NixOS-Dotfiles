@@ -29,7 +29,7 @@ in {
     ];
 
     environment.systemPackages = with pkgs; [
-	  mpv
+      mpv
       ghostty
       handbrake
       makemkv

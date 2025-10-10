@@ -14,13 +14,14 @@ in {
       defaultEditor = true;
       startWithGraphical = true;
       install = true;
-      package = (pkgs.emacsWithPackagesFromUsePackage {
+      package = pkgs.emacsWithPackagesFromUsePackage {
         config = ../../configs/dot-config/emacs/init.el;
         alwaysEnsure = true;
         extraEmacsPackages = epkgs: [
           epkgs.vterm
+          pkgs.libvterm
         ];
-      });
+      };
     };
   };
 }

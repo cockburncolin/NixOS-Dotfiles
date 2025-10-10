@@ -10,7 +10,7 @@
 
   custom = {
     developmentUtils.enable = true;
-    emacs.enable = true;
+    emacs.enable = false;
     games.enable = true;
     windowManager.enable = true;
     virt.enable = true;
@@ -28,6 +28,7 @@
     neovim
   ];
 
+  # settings for amdgpu
   services.lact.enable = true;
   hardware.amdgpu.overdrive.enable = true;
 
