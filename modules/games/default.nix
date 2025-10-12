@@ -10,16 +10,16 @@ in {
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-		lutris
-		(prismlauncher.override {
-			additionalPrograms = with pkgs; [ ffmpeg ];
-			jdks = with pkgs; [
-				jdk21
-				jdk17
-				jdk8
-			];
-		})
-	];
+      lutris
+      (prismlauncher.override {
+        additionalPrograms = with pkgs; [ffmpeg];
+        jdks = with pkgs; [
+          jdk21
+          jdk17
+          jdk8
+        ];
+      })
+    ];
     programs.steam = {
       enable = true;
       extraCompatPackages = with pkgs; [

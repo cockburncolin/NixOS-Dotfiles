@@ -29,10 +29,18 @@ in {
     ];
 
     environment.systemPackages = with pkgs; [
-      mpv
+	  kdePackages.isoimagewriter
+	  kdePackages.kaccounts-integration
+	  kdePackages.kaccounts-providers
+	  kdePackages.qtwebengine
+      brave
       ghostty
       handbrake
+      kiwix
       makemkv
+      mpv
+      transmission-remote-gtk
+      wl-clipboard
     ];
 
     fonts.packages = with pkgs; [

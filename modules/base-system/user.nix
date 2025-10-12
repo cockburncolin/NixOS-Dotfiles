@@ -10,11 +10,19 @@
       description = "Colin Cockburn";
       extraGroups = ["networkmanager" "wheel" "plugdev"];
       packages = with pkgs; [
-        brave
+		pinentry
         gh
+        gnupg
         just
+        rename
         stow
       ];
     };
+  };
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+	  enable = true;
+	  pinentryPackage = pkgs.pinentry-all;
+	  enableSSHSupport = true;
   };
 }
