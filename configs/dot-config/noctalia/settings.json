@@ -21,7 +21,7 @@
     "bar": {
         "backgroundOpacity": 1,
         "density": "comfortable",
-        "floating": true,
+        "floating": false,
         "marginHorizontal": 0.25,
         "marginVertical": 0.25,
         "monitors": [
@@ -31,21 +31,6 @@
         "widgets": {
             "center": [
                 {
-                    "hideUnoccupied": false,
-                    "id": "Workspace",
-                    "labelMode": "index"
-                }
-            ],
-            "left": [
-                {
-                    "colorizeIcons": false,
-                    "hideMode": "hidden",
-                    "id": "ActiveWindow",
-                    "scrollingMode": "hover",
-                    "showIcon": true,
-                    "width": 145
-                },
-                {
                     "hideMode": "hidden",
                     "id": "MediaMini",
                     "scrollingMode": "hover",
@@ -54,29 +39,30 @@
                     "visualizerType": "linear"
                 }
             ],
-            "right": [
+            "left": [
                 {
-                    "id": "SystemMonitor",
-                    "showCpuTemp": true,
-                    "showCpuUsage": true,
-                    "showDiskUsage": false,
-                    "showMemoryAsPercent": false,
-                    "showMemoryUsage": true,
-                    "showNetworkStats": false
-                },
+                    "hideUnoccupied": true,
+                    "id": "Workspace",
+                    "labelMode": "index"
+                }
+            ],
+            "right": [
                 {
                     "id": "ScreenRecorder"
                 },
                 {
                     "blacklist": [
                     ],
-                    "colorizeIcons": false,
+                    "colorizeIcons": true,
                     "id": "Tray"
                 },
                 {
                     "hideWhenZero": true,
                     "id": "NotificationHistory",
                     "showUnreadBadge": true
+                },
+                {
+                    "id": "WiFi"
                 },
                 {
                     "displayMode": "onhover",
@@ -92,15 +78,15 @@
                     "id": "Brightness"
                 },
                 {
+                    "id": "KeepAwake"
+                },
+                {
                     "customFont": "",
                     "formatHorizontal": "HH:mm ddd, MMM dd",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
                     "useCustomFont": false,
                     "usePrimaryColor": true
-                },
-                {
-                    "id": "KeepAwake"
                 },
                 {
                     "customIconPath": "",
@@ -230,7 +216,7 @@
         "alwaysOnTop": false,
         "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
-        "lastSeenTs": 1760764081000,
+        "lastSeenTs": 1760768286000,
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
@@ -286,12 +272,17 @@
     },
     "wallpaper": {
         "defaultWallpaper": "/nix/store/w4q342myprpbfp7lirppr9wmx47cpzhr-noctalia-shell-1418881fff8f916ea6a1329ff96ef75a72235aaf/share/noctalia-shell/Assets/Wallpaper/noctalia.png",
-        "directory": "/home/colin/Pictures/Wallpapers",
+        "directory": "/home/colin/Programming/NixOS/configs/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "fillColor": "#000000",
         "fillMode": "crop",
         "monitors": [
+            {
+                "directory": "/home/colin/Programming/NixOS/configs/Pictures/Wallpapers",
+                "name": "HDMI-A-1",
+                "wallpaper": "/home/colin/Programming/NixOS/configs/Pictures/Wallpapers/tunnel.jpg"
+            }
         ],
         "randomEnabled": false,
         "randomIntervalSec": 300,
