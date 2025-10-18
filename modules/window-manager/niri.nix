@@ -15,12 +15,14 @@ in {
     };
     environment.systemPackages = with pkgs; [
       inputs.noctalia.packages.${system}.default
-	  gnome-keyring
-	  xdg-desktop-portal-gtk
       fuzzel
+      gnome-keyring
       mako
       swayidle
       swaylock
+      plasma-polkit-agent
+      xdg-desktop-portal-gtk
+      xwayland-satellite
     ];
   };
 }
