@@ -266,7 +266,7 @@
     "ui": {
         "fontDefault": "FiraCode Nerd Font",
         "fontDefaultScale": 1,
-        "fontFixed": "DejaVu Sans Mono",
+        "fontFixed": "FiraCode Nerd Font Mono",
         "fontFixedScale": 1,
         "tooltipsEnabled": true
     },

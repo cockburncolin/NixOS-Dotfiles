@@ -14,6 +14,7 @@
     games.enable = true;
     windowManager.enable = true;
     windowManager.niri.enable = true;
+    windowManager.hyprland.enable = true;
     virt.enable = true;
   };
 

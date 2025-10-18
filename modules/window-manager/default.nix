@@ -7,6 +7,7 @@
   cfg = config.custom.windowManager;
 in {
   imports = [
+    ./hyprland.nix
     ./kde.nix
     ./niri.nix
   ];

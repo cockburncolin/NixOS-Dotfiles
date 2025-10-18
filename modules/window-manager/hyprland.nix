@@ -5,12 +5,12 @@
   inputs,
   ...
 }: let
-  cfg = config.custom.windowManager.niri;
+  cfg = config.custom.windowManager.hyprland;
 in {
-  options.custom.windowManager.niri.enable = lib.mkEnableOption "Install Niri";
+  options.custom.windowManager.hyprland.enable = lib.mkEnableOption "Install Hyprland";
 
   config = lib.mkIf cfg.enable {
-    programs.niri = {
+    programs.hyprland = {
       enable = true;
     };
     environment.systemPackages = with pkgs; [
@@ -21,7 +21,6 @@ in {
       swayidle
       swaylock
       xdg-desktop-portal-gtk
-      xwayland-satellite
     ];
   };
 }
