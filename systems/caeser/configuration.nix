@@ -13,6 +13,7 @@
     emacs.enable = false;
     games.enable = true;
     windowManager.enable = true;
+    windowManager.niri.enable = true;
     virt.enable = true;
   };
 

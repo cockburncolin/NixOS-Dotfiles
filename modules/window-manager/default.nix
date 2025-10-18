@@ -6,6 +6,7 @@
 }: let
   cfg = config.custom.windowManager;
 in {
+  imports = [./niri.nix];
   options.custom.windowManager = {
     enable = lib.mkEnableOption "Install window manager utilities";
   };
@@ -29,10 +30,11 @@ in {
     ];
 
     environment.systemPackages = with pkgs; [
-	  kdePackages.isoimagewriter
-	  kdePackages.kaccounts-integration
-	  kdePackages.kaccounts-providers
-	  kdePackages.qtwebengine
+      kdePackages.isoimagewriter
+      kdePackages.kaccounts-integration
+      kdePackages.kaccounts-providers
+      kdePackages.qtwebengine
+      protonvpn-gui
       brave
       ghostty
       handbrake

@@ -10,7 +10,7 @@
       description = "Colin Cockburn";
       extraGroups = ["networkmanager" "wheel" "plugdev"];
       packages = with pkgs; [
-		pinentry
+        pinentry
         gh
         gnupg
         just
@@ -21,8 +21,8 @@
   };
   services.pcscd.enable = true;
   programs.gnupg.agent = {
-	  enable = true;
-	  pinentryPackage = pkgs.pinentry-all;
-	  enableSSHSupport = true;
+    enable = true;
+    pinentryPackage = pkgs.pinentry-all;
+    enableSSHSupport = true;
   };
 }
