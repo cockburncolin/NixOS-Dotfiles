@@ -18,9 +18,12 @@ in {
       fuzzel
       gnome-keyring
       mako
+	  matugen
+	  swww
       swayidle
       swaylock
       xdg-desktop-portal-gtk
+	  quickshell
     ];
   };
 }

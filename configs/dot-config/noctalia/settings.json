@@ -106,9 +106,9 @@
     "colorSchemes": {
         "darkMode": true,
         "generateTemplatesForPredefined": true,
-        "matugenSchemeType": "scheme-fruit-salad",
-        "predefinedScheme": "Tokyo Night",
-        "useWallpaperColors": false
+        "matugenSchemeType": "scheme-neutral",
+        "predefinedScheme": "Kanagawa",
+        "useWallpaperColors": true
     },
     "controlCenter": {
         "cards": [
@@ -168,7 +168,7 @@
     "dock": {
         "backgroundOpacity": 1,
         "colorizeIcons": false,
-        "displayMode": "always_visible",
+        "displayMode": "exclusive",
         "floatingRatio": 1,
         "monitors": [
         ],
@@ -274,7 +274,7 @@
         "defaultWallpaper": "/nix/store/w4q342myprpbfp7lirppr9wmx47cpzhr-noctalia-shell-1418881fff8f916ea6a1329ff96ef75a72235aaf/share/noctalia-shell/Assets/Wallpaper/noctalia.png",
         "directory": "/home/colin/Programming/NixOS/configs/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
-        "enabled": true,
+        "enabled": false,
         "fillColor": "#000000",
         "fillMode": "crop",
         "monitors": [

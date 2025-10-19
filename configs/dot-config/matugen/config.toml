@@ -1,0 +1,43 @@
+[config]
+version_check = false
+
+[config.wallpaper]
+set = true
+command = "swww"
+arguments = ["img", "--transition-type", "center"]
+
+[templates.fuzzel]
+input_path = "./templates/fuzzel.ini"
+output_path = "~/.config/fuzzel/colors.ini"
+
+[templates.ghostty]
+input_path = "./templates/ghostty"
+output_path = "~/.config/ghostty/themes/matugen"
+
+[templates.gtk3]
+input_path = "./templates/gtk.css"
+output_path = "~/.config/gtk-3.0/gtk.css"
+
+[templates.gtk4]
+input_path = "./templates/gtk4.css"
+output_path = "~/.config/gtk-4.0/gtk.css"
+
+[templates.hyprland]
+input_path = "./templates/hyprland.conf"
+output_path = "~/.config/hypr/colors.conf"
+post_hook = "hyprctl reload"
+
+[templates.neovim]
+input_path = "./templates/neovim.lua"
+output_path = "~/.config/nvim/lua/colors/matugen.lua"
+
+[templates.qt5ct]
+input_path = './templates/qt5.conf'
+output_path = '~/.config/qt5ct/colors/matugen.conf'
+
+[templates.qt6ct]
+input_path = './templates/qt6.conf'
+output_path = '~/.config/qt6ct/colors/matugen.conf'
+[templates.yazi]
+input_path = "./templates/yazi.toml"
+output_path = "~/.config/yazi/theme.toml"
