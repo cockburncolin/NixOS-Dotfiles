@@ -42,6 +42,8 @@ in {
       nerd-fonts.inconsolata
     ];
 
+    services.gnome.gnome-keyring.enable = true;
+
     # needed for blu-ray drive
     boot.kernelModules = ["sg"];
   };

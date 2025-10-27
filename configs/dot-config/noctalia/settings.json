@@ -1,6 +1,8 @@
 {
     "appLauncher": {
         "backgroundOpacity": 1,
+        "customLaunchPrefix": "",
+        "customLaunchPrefixEnabled": false,
         "enableClipboardHistory": false,
         "pinnedExecs": [
         ],
@@ -33,14 +35,17 @@
                 {
                     "hideMode": "hidden",
                     "id": "MediaMini",
+                    "maxWidth": 145,
                     "scrollingMode": "hover",
                     "showAlbumArt": false,
                     "showVisualizer": false,
+                    "useFixedWidth": false,
                     "visualizerType": "linear"
                 }
             ],
             "left": [
                 {
+                    "characterCount": 2,
                     "hideUnoccupied": true,
                     "id": "Workspace",
                     "labelMode": "index"
@@ -62,6 +67,7 @@
                     "showUnreadBadge": true
                 },
                 {
+                    "displayMode": "onhover",
                     "id": "WiFi"
                 },
                 {
@@ -106,9 +112,12 @@
     "colorSchemes": {
         "darkMode": true,
         "generateTemplatesForPredefined": true,
-        "matugenSchemeType": "scheme-fruit-salad",
-        "predefinedScheme": "Tokyo Night",
-        "useWallpaperColors": false
+        "manualSunrise": "06:30",
+        "manualSunset": "18:30",
+        "matugenSchemeType": "scheme-content",
+        "predefinedScheme": "Kanagawa",
+        "schedulingMode": "off",
+        "useWallpaperColors": true
     },
     "controlCenter": {
         "cards": [
@@ -168,13 +177,14 @@
     "dock": {
         "backgroundOpacity": 1,
         "colorizeIcons": false,
-        "displayMode": "always_visible",
+        "displayMode": "exclusive",
         "floatingRatio": 1,
         "monitors": [
         ],
         "onlySameOutput": true,
         "pinnedApps": [
-        ]
+        ],
+        "size": 1
     },
     "general": {
         "animationDisabled": false,
@@ -183,6 +193,8 @@
         "compactLockScreen": false,
         "dimDesktop": true,
         "forceBlackScreenCorners": false,
+        "language": "",
+        "lockOnSuspend": true,
         "radiusRatio": 1,
         "scaleRatio": 1,
         "screenRadiusRatio": 1,
@@ -194,7 +206,9 @@
         "wallpaperChange": ""
     },
     "location": {
+        "analogClockInCalendar": false,
         "name": "Castlegar, BC",
+        "showCalendarEvents": true,
         "showWeekNumberInCalendar": false,
         "use12hourFormat": false,
         "useFahrenheit": false,
@@ -213,24 +227,23 @@
         "nightTemp": "3000"
     },
     "notifications": {
-        "alwaysOnTop": false,
         "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
-        "lastSeenTs": 1760768286000,
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
         ],
         "normalUrgencyDuration": 8,
+        "overlayLayer": true,
         "respectExpireTimeout": false
     },
     "osd": {
-        "alwaysOnTop": false,
         "autoHideMs": 2000,
         "enabled": true,
         "location": "top_right",
         "monitors": [
-        ]
+        ],
+        "overlayLayer": true
     },
     "screenRecorder": {
         "audioCodec": "opus",
@@ -255,33 +268,35 @@
         "discord_webcord": false,
         "enableUserTemplates": true,
         "foot": false,
-        "fuzzel": true,
-        "ghostty": true,
-        "gtk": true,
-        "kcolorscheme": true,
+        "fuzzel": false,
+        "ghostty": false,
+        "gtk": false,
+        "kcolorscheme": false,
         "kitty": false,
         "pywalfox": false,
-        "qt": true
+        "qt": false,
+        "vicinae": false
     },
     "ui": {
         "fontDefault": "FiraCode Nerd Font",
         "fontDefaultScale": 1,
         "fontFixed": "FiraCode Nerd Font Mono",
         "fontFixedScale": 1,
+        "panelsOverlayLayer": true,
         "tooltipsEnabled": true
     },
     "wallpaper": {
         "defaultWallpaper": "/nix/store/w4q342myprpbfp7lirppr9wmx47cpzhr-noctalia-shell-1418881fff8f916ea6a1329ff96ef75a72235aaf/share/noctalia-shell/Assets/Wallpaper/noctalia.png",
         "directory": "/home/colin/Programming/NixOS/configs/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
-        "enabled": true,
+        "enabled": false,
         "fillColor": "#000000",
         "fillMode": "crop",
         "monitors": [
             {
                 "directory": "/home/colin/Programming/NixOS/configs/Pictures/Wallpapers",
                 "name": "HDMI-A-1",
-                "wallpaper": "/home/colin/Programming/NixOS/configs/Pictures/Wallpapers/tunnel.jpg"
+                "wallpaper": "/home/colin/Programming/NixOS/configs/Pictures/Wallpapers/wallhaven-57kzd1.jpg"
             }
         ],
         "randomEnabled": false,

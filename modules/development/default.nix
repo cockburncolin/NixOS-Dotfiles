@@ -3,9 +3,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.custom.developmentUtils;
-in {
+in
+{
   options.custom.developmentUtils.enable = lib.mkEnableOption "Install development utilities";
 
   config = lib.mkIf cfg.enable {
@@ -21,7 +23,9 @@ in {
       man-pages
       man-pages-posix
       nil
+      nixd
       tealdeer
+      zed-editor
     ];
     documentation.dev.enable = true;
   };

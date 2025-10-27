@@ -12,8 +12,9 @@
     developmentUtils.enable = true;
     emacs.enable = false;
     games.enable = true;
+	musicProduction.reaper.enable = true;
     windowManager.enable = true;
-    windowManager.niri.enable = true;
+    windowManager.niri.enable = false;
     windowManager.hyprland.enable = true;
     virt.enable = true;
   };
