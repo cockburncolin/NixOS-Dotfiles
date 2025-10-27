@@ -1,105 +1,105 @@
 -- matugen generated colours for Neovim
 local colors = {
 
-	background = "#131413",
+	background = "#111318",
 
 	error = "#ffb4ab",
 
 	error_container = "#93000a",
 
-	inverse_on_surface = "#303030",
+	inverse_on_surface = "#2e3035",
 
-	inverse_primary = "#51625a",
+	inverse_primary = "#295ea5",
 
-	inverse_surface = "#e4e2e0",
+	inverse_surface = "#e2e2e8",
 
-	on_background = "#e4e2e0",
+	on_background = "#e2e2e8",
 
 	on_error = "#690005",
 
 	on_error_container = "#ffdad6",
 
-	on_primary = "#24342d",
+	on_primary = "#003062",
 
-	on_primary_container = "#b3c6bc",
+	on_primary_container = "#000000",
 
-	on_primary_fixed = "#0f1f18",
+	on_primary_fixed = "#001b3d",
 
-	on_primary_fixed_variant = "#3a4a43",
+	on_primary_fixed_variant = "#00468a",
 
-	on_secondary = "#2b322e",
+	on_secondary = "#20314b",
 
-	on_secondary_container = "#dfe6e0",
+	on_secondary_container = "#d2e1ff",
 
-	on_secondary_fixed = "#171d1a",
+	on_secondary_fixed = "#091c35",
 
-	on_secondary_fixed_variant = "#424845",
+	on_secondary_fixed_variant = "#374763",
 
-	on_surface = "#e4e2e0",
+	on_surface = "#e2e2e8",
 
-	on_surface_variant = "#c2c8c3",
+	on_surface_variant = "#c2c6d2",
 
-	on_tertiary = "#412b2b",
+	on_tertiary = "#442c00",
 
-	on_tertiary_container = "#dbbab9",
+	on_tertiary_container = "#000000",
 
-	on_tertiary_fixed = "#291617",
+	on_tertiary_fixed = "#281800",
 
-	on_tertiary_fixed_variant = "#594141",
+	on_tertiary_fixed_variant = "#614000",
 
-	outline = "#8c928e",
+	outline = "#8c919c",
 
-	outline_variant = "#424845",
+	outline_variant = "#424751",
 
-	primary = "#b8cbc1",
+	primary = "#a8c8ff",
 
-	primary_container = "#26362f",
+	primary_container = "#6291db",
 
-	primary_fixed = "#d4e7dc",
+	primary_fixed = "#d6e3ff",
 
-	primary_fixed_dim = "#b8cbc1",
+	primary_fixed_dim = "#a8c8ff",
 
 	scrim = "#000000",
 
-	secondary = "#c2c8c3",
+	secondary = "#b6c7e9",
 
-	secondary_container = "#444b47",
+	secondary_container = "#374763",
 
-	secondary_fixed = "#dee4df",
+	secondary_fixed = "#d6e3ff",
 
-	secondary_fixed_dim = "#c2c8c3",
+	secondary_fixed_dim = "#b6c7e9",
 
 	shadow = "#000000",
 
-	source_color = "#26362f",
+	source_color = "#4778c0",
 
-	surface = "#131413",
+	surface = "#111318",
 
-	surface_bright = "#393938",
+	surface_bright = "#37393e",
 
-	surface_container = "#1f201f",
+	surface_container = "#1d2024",
 
-	surface_container_high = "#292a29",
+	surface_container_high = "#282a2f",
 
-	surface_container_highest = "#343534",
+	surface_container_highest = "#33353a",
 
-	surface_container_low = "#1b1c1b",
+	surface_container_low = "#191c20",
 
-	surface_container_lowest = "#0d0e0e",
+	surface_container_lowest = "#0c0e13",
 
-	surface_dim = "#131413",
+	surface_dim = "#111318",
 
-	surface_tint = "#b8cbc1",
+	surface_tint = "#a8c8ff",
 
-	surface_variant = "#424845",
+	surface_variant = "#424751",
 
-	tertiary = "#e0bfbe",
+	tertiary = "#fbbb54",
 
-	tertiary_container = "#432d2d",
+	tertiary_container = "#be8622",
 
-	tertiary_fixed = "#fedad9",
+	tertiary_fixed = "#ffddb0",
 
-	tertiary_fixed_dim = "#e0bfbe",
+	tertiary_fixed_dim = "#fbbb54",
 
 }
 
