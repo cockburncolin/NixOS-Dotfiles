@@ -10,7 +10,7 @@
       description = "Colin Cockburn";
       extraGroups = ["networkmanager" "wheel" "plugdev"];
       packages = with pkgs; [
-        pinentry
+        pinentry-gnome3
         gh
         gnupg
         just
