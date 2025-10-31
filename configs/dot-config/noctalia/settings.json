@@ -107,7 +107,8 @@
         "chargingMode": 0
     },
     "brightness": {
-        "brightnessStep": 5
+        "brightnessStep": 5,
+        "enforceMinimum": true
     },
     "colorSchemes": {
         "darkMode": true,
@@ -178,6 +179,7 @@
         "backgroundOpacity": 1,
         "colorizeIcons": false,
         "displayMode": "exclusive",
+        "enabled": false,
         "floatingRatio": 1,
         "monitors": [
         ],
@@ -191,7 +193,6 @@
         "animationSpeed": 1,
         "avatarImage": "/home/colin/.face",
         "compactLockScreen": false,
-        "dimDesktop": true,
         "forceBlackScreenCorners": false,
         "language": "",
         "lockOnSuspend": true,
@@ -207,8 +208,10 @@
     },
     "location": {
         "analogClockInCalendar": false,
+        "firstDayOfWeek": -1,
         "name": "Castlegar, BC",
         "showCalendarEvents": true,
+        "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
         "use12hourFormat": false,
         "useFahrenheit": false,
@@ -227,6 +230,7 @@
         "nightTemp": "3000"
     },
     "notifications": {
+        "backgroundOpacity": 1,
         "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
         "location": "top_right",
@@ -259,6 +263,7 @@
     "settingsVersion": 16,
     "setupCompleted": true,
     "templates": {
+        "code": false,
         "discord": false,
         "discord_armcord": false,
         "discord_dorion": false,
@@ -275,13 +280,15 @@
         "kitty": false,
         "pywalfox": false,
         "qt": false,
-        "vicinae": false
+        "vicinae": false,
+        "walker": false
     },
     "ui": {
         "fontDefault": "FiraCode Nerd Font",
         "fontDefaultScale": 1,
         "fontFixed": "FiraCode Nerd Font Mono",
         "fontFixedScale": 1,
+        "panelsAttachedToBar": true,
         "panelsOverlayLayer": true,
         "tooltipsEnabled": true
     },
@@ -301,6 +308,7 @@
         ],
         "randomEnabled": false,
         "randomIntervalSec": 300,
+        "recursiveSearch": false,
         "setWallpaperOnAllMonitors": true,
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,

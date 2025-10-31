@@ -44,27 +44,27 @@
       );
   in {
     formatter.x86_64-linux = pkgs.alejandra;
-	nixosConfigurations = {
-		caeser = lib.nixosSystem {
-			system = "x86_64-linux";
-			specialArgs = {inherit inputs;};
-			modules =
-				[
-				./systems/caeser/configuration.nix
-					(import ./overlays)
-				]
-				++ findNixFiles ./modules;
-		};
-		brutus = lib.nixosSystem {
-			system = "x86_64-linux";
-			specialArgs = {inherit inputs;};
-			modules =
-				[
-				./systems/brutus/configuration.nix
-					(import ./overlays)
-				]
-				++ findNixFiles ./modules;
-		};
-	};
+    nixosConfigurations = {
+      caeser = lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules =
+          [
+            ./systems/caeser/configuration.nix
+            (import ./overlays)
+          ]
+          ++ findNixFiles ./modules;
+      };
+      brutus = lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules =
+          [
+            ./systems/brutus/configuration.nix
+            (import ./overlays)
+          ]
+          ++ findNixFiles ./modules;
+      };
+    };
   };
 }

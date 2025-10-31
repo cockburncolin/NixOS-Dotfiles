@@ -4,11 +4,9 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   cfg = config.custom.windowManager.hyprland;
-in
-{
+in {
   options.custom.windowManager.hyprland.enable = lib.mkEnableOption "Install Hyprland";
 
   config = lib.mkIf cfg.enable {

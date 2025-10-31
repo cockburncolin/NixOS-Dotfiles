@@ -3,11 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.custom.developmentUtils;
-in
-{
+in {
   options.custom.developmentUtils.enable = lib.mkEnableOption "Install development utilities";
 
   config = lib.mkIf cfg.enable {

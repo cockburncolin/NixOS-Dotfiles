@@ -11,7 +11,7 @@ in {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       reaper
-	  neural-amp-modeler-lv2
+      neural-amp-modeler-lv2
     ];
   };
 }
