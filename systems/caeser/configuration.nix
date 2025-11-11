@@ -1,16 +1,15 @@
 {
-  config,
   pkgs,
-  inputs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
   ];
 
   custom = {
     developmentUtils.enable = true;
-    emacs.enable = false;
+    emacs.enable = true;
     games.enable = true;
     musicProduction.reaper.enable = true;
     windowManager.enable = true;

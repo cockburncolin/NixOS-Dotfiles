@@ -3,9 +3,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.custom.emacs;
-in {
+in
+{
   options.custom.emacs.enable = lib.mkEnableOption "Enable Emacs editor";
 
   config = lib.mkIf cfg.enable {
@@ -15,7 +17,8 @@ in {
       startWithGraphical = true;
       install = true;
       package = pkgs.emacsWithPackagesFromUsePackage {
-        config = ../../configs/dot-config/emacs/init.el;
+        config = ../../configs/dot-config/emacs/init.org;
+        alwaysTangle = true;
         alwaysEnsure = true;
         extraEmacsPackages = epkgs: [
           epkgs.vterm

@@ -3,20 +3,18 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.custom.developmentUtils;
-in {
+in
+{
   options.custom.developmentUtils.enable = lib.mkEnableOption "Install development utilities";
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       alejandra
-      clang
       direnv
-      fenix.complete.toolchain
-      gcc
       git
-      gnumake
       lazygit
       man-pages
       man-pages-posix

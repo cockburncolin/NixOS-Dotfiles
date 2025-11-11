@@ -9,7 +9,7 @@
 {
   "auto_update": false,
   "agent": {
-    "default_profile": "write",
+    "default_profile": "minimal",
     "default_model": {
       "provider": "anthropic",
       "model": "claude-sonnet-4-5-latest"
