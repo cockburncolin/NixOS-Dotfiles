@@ -10,6 +10,7 @@ in
 {
 
   imports = [
+    ./kotlin.nix
     ./zig.nix
   ];
 

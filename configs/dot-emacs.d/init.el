@@ -630,6 +630,14 @@
   :mode "\\.nix\\'")
 
 
+;;; KOTLIN-TS-MODE
+(use-package kotlin-ts-mode
+  :ensure t
+  :straight t
+  :after emacs
+  :mode "\\.kt\\'")
+  
+
 ;;; MARKDOWN-MODE
 ;; Markdown Mode provides support for editing Markdown files in Emacs,
 ;; enabling features like syntax highlighting, previews, and more.
@@ -706,6 +714,7 @@
            css-mode                                     ;; Enable LSP for CSS
            go-ts-mode                                   ;; Enable LSP for Go
            js-ts-mode                                   ;; Enable LSP for JavaScript (TS mode)
+           kotlin-ts-mode                               ;; Enable LSP for Kotlin
            nix-ts-mode                                  ;; Enable LSP for Nix
            rust-ts-mode                                 ;; Enable LSP for Rust
            web-mode                                     ;; Enable LSP for Web (HTML)

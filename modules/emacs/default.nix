@@ -17,7 +17,7 @@ in
       startWithGraphical = false;
       install = true;
       package = pkgs.emacsWithPackagesFromUsePackage {
-        config = ../../configs/dot-config/emacs/init.el;
+        config = ../../configs/dot-emacs.d/emacs/init.el;
         alwaysTangle = true;
         alwaysEnsure = true;
         extraEmacsPackages = epkgs: [
