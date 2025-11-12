@@ -14,10 +14,10 @@ in
     services.emacs = {
       enable = true;
       defaultEditor = true;
-      startWithGraphical = true;
+      startWithGraphical = false;
       install = true;
       package = pkgs.emacsWithPackagesFromUsePackage {
-        config = ../../configs/dot-config/emacs/init.org;
+        config = ../../configs/dot-config/emacs/init.el;
         alwaysTangle = true;
         alwaysEnsure = true;
         extraEmacsPackages = epkgs: [

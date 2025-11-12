@@ -1,7 +1,11 @@
 .cache/
 auto-save-list/
 eln-cache/
+recentf
 straight/
 tmp/
 transient/
-recentf
+tree-sitter/
+places
+projects
+doc/
