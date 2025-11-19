@@ -105,6 +105,10 @@
 ;; Set the maximum output size for reading process output, allowing for larger data transfers.
 (setq read-process-output-max (* 1024 1024 4))
 
+(add-to-list 'exec-path '("~/.cargo/bin"
+                         "~/.local/go/bin"))
+(setq shell-command-switch "-ic")
+
 ;; Do I really need a speedy startup?
 ;; Well, this config launches Emacs in about ~0.3 seconds,
 ;; which, in modern terms, is a miracle considering how fast it starts
@@ -221,6 +225,7 @@
   (use-dialog-box nil)                            ;; Disable dialog boxes in favor of minibuffer prompts.
   (use-short-answers t)                           ;; Use short answers in prompts for quicker responses (y instead of yes)
   (warning-minimum-level :emergency)              ;; Set the minimum level of warnings to display.
+  (electric-pair-mode t)                          ;; Enable support for matching parenthesis
 
   :hook                                           ;; Add hooks to enable specific features in certain modes.
   (prog-mode . display-line-numbers-mode)         ;; Enable line numbers in programming modes.
@@ -260,7 +265,7 @@
   (when scroll-bar-mode
     (scroll-bar-mode -1))      ;; Disable the scroll bar if it is active.
 
-  (global-hl-line-mode -1)     ;; Disable highlight of the current line
+  (global-hl-line-mode t)      ;; Enable highlight of the current line
   (global-auto-revert-mode 1)  ;; Enable global auto-revert mode to keep buffers up to date with their corresponding files.
   (recentf-mode 1)             ;; Enable tracking of recently opened files.
   (savehist-mode 1)            ;; Enable saving of command history.
@@ -287,11 +292,11 @@
   :custom
   (display-buffer-alist
    '(
-     ;; ("\\*.*e?shell\\*"
-     ;;  (display-buffer-in-side-window)
-     ;;  (window-height . 0.25)
-     ;;  (side . bottom)
-     ;;  (slot . -1))
+     ("\\*.*\\(vterm\\|e?shell\\)\\*"
+      (display-buffer-in-side-window)
+      (window-height . 0.25)
+      (side . bottom)
+      (slot . -1))
 
      ("\\*\\(Backtrace\\|Warnings\\|Compile-Log\\|[Hh]elp\\|Messages\\|Bookmark List\\|Ibuffer\\|Occur\\|eldoc.*\\)\\*"
       (display-buffer-in-side-window)
@@ -315,6 +320,21 @@
       (side . bottom)
       (slot . 1))
      )))
+
+
+;;; DASHBOARD
+(use-package dashboard
+  :ensure t
+  :straight t
+  :config
+  (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
+  (setq dashboard-center-content t)
+  (setq dashboard-vertically-center-content t)
+  (dashboard-setup-startup-hook))
+
+;;; VTERM
+(use-package vterm
+  :ensure t)
 
 
 ;;; DIRED
@@ -636,6 +656,22 @@
   :straight t
   :after emacs
   :mode "\\.kt\\'")
+
+
+;;; HASKELL-TS-MODE
+(use-package haskell-ts-mode
+  :ensure t
+  :custom
+  (haskell-ts-font-lock-level 4)
+  (haskell-ts-use-indent t)
+  (haskell-ts-ghci "ghci")
+  (haskell-ts-use-indent t)
+  :config
+  (add-to-list 'treesit-language-source-alist
+               '(haskell . ("https://github.com/tree-sitter/tree-sitter-haskell" "v0.23.1")))
+  (unless (treesit-grammar-location 'haskell)
+    (treesit-install-language-grammar 'haskell))
+  :mode "\\.hs\\'")
   
 
 ;;; MARKDOWN-MODE
@@ -662,8 +698,8 @@
   :straight t
   :defer t
   :custom
-  (corfu-auto nil)                        ;; Only completes when hitting TAB
-  ;; (corfu-auto-delay 0)                ;; Delay before popup (enable if corfu-auto is t)
+  (corfu-auto nil)                       ;; Only completes when hitting TAB
+  (corfu-auto-delay nil)                 ;; Delay before popup (enable if corfu-auto is t)
   (corfu-auto-prefix 1)                  ;; Trigger completion after typing 1 character
   (corfu-quit-no-match t)                ;; Quit popup if no match
   (corfu-scroll-margin 5)                ;; Margin when scrolling completions
@@ -688,6 +724,11 @@
   :after (:all corfu))
 
 
+(use-package zig-mode
+  :ensure t
+  :straight t
+  :mode "\\.zig'")
+
 ;;; LSP
 ;; Emacs comes with an integrated LSP client called `eglot', which offers basic LSP functionality.
 ;; However, `eglot' has limitations, such as not supporting multiple language servers
@@ -708,21 +749,24 @@
   :defer t
   :hook (;; Replace XXX-mode with concrete major mode (e.g. python-mode)
          (lsp-mode . lsp-enable-which-key-integration)  ;; Integrate with Which Key
-         ((js-mode                                      ;; Enable LSP for JavaScript
+         ((c-mode
+           c-ts-mode
+           js-mode                                      ;; Enable LSP for JavaScript
            tsx-ts-mode                                  ;; Enable LSP for TSX
            typescript-ts-base-mode                      ;; Enable LSP for TypeScript
            css-mode                                     ;; Enable LSP for CSS
            go-ts-mode                                   ;; Enable LSP for Go
+           haskell-ts-mode                              ;; Enable LSP for Haskell
            js-ts-mode                                   ;; Enable LSP for JavaScript (TS mode)
            kotlin-ts-mode                               ;; Enable LSP for Kotlin
            nix-ts-mode                                  ;; Enable LSP for Nix
            rust-ts-mode                                 ;; Enable LSP for Rust
            web-mode                                     ;; Enable LSP for Web (HTML)
-           zig-ts-mode) . lsp-deferred))                ;; Enable LSP for Zig
+           zig-mode) . lsp-deferred))                ;; Enable LSP for Zig
   :commands lsp
   :custom
   (lsp-keymap-prefix "C-c l")                           ;; Set the prefix for LSP commands.
-  (lsp-inlay-hint-enable nil)                           ;; Usage of inlay hints.
+  (lsp-inlay-hint-enable t)                             ;; Usage of inlay hints.
   (lsp-completion-provider :none)                       ;; Disable the default completion provider.
   (lsp-session-file (locate-user-emacs-file ".lsp-session")) ;; Specify session file location.
   (lsp-log-io nil)                                      ;; Disable IO logging for speed.
@@ -736,7 +780,7 @@
   (lsp-enable-file-watchers nil)                        ;; Disable file watchers.
   (lsp-enable-folding nil)                              ;; Disable folding.
   (lsp-enable-imenu t)                                  ;; Enable Imenu support.
-  (lsp-enable-indentation nil)                          ;; Disable indentation.
+  (lsp-enable-indentation t)                            ;; Disable indentation.
   (lsp-enable-on-type-formatting nil)                   ;; Disable on-type formatting.
   (lsp-enable-suggest-server-download t)                ;; Enable server download suggestion.
   (lsp-enable-symbol-highlighting t)                    ;; Enable symbol highlighting.
@@ -956,8 +1000,8 @@
   (evil-define-key 'normal 'global (kbd "] c") 'diff-hl-next-hunk) ;; Next diff hunk
   (evil-define-key 'normal 'global (kbd "[ c") 'diff-hl-previous-hunk) ;; Previous diff hunk
 
-  ;; NeoTree command for file exploration
-  (evil-define-key 'normal 'global (kbd "<leader> e e") 'neotree-toggle)
+  ;; Treemacs command for file exploration
+  (evil-define-key 'normal 'global (kbd "<leader> e e") 'treemacs)
   (evil-define-key 'normal 'global (kbd "<leader> e d") 'dired-jump)
 
   ;; Magit keybindings for Git integration
@@ -972,6 +1016,8 @@
   (evil-define-key 'normal 'global (kbd "[ b") 'switch-to-prev-buffer) ;; Switch to previous buffer
   (evil-define-key 'normal 'global (kbd "<leader> b i") 'consult-buffer) ;; Open consult buffer list
   (evil-define-key 'normal 'global (kbd "<leader> b b") 'ibuffer) ;; Open Ibuffer
+  (evil-define-key 'normal 'global (kbd "<leader> b p") 'previous-buffer) ;; Switch to previous buffer
+  (evil-define-key 'normal 'global (kbd "<leader> b n") 'next-buffer) ;; Switch to next buffer
   (evil-define-key 'normal 'global (kbd "<leader> b d") 'kill-current-buffer) ;; Kill current buffer
   (evil-define-key 'normal 'global (kbd "<leader> b k") 'kill-current-buffer) ;; Kill current buffer
   (evil-define-key 'normal 'global (kbd "<leader> b x") 'kill-current-buffer) ;; Kill current buffer
@@ -1006,6 +1052,9 @@
   ;; Tab navigation
   (evil-define-key 'normal 'global (kbd "] t") 'tab-next) ;; Go to next tab
   (evil-define-key 'normal 'global (kbd "[ t") 'tab-previous) ;; Go to previous tab
+
+  ;; Vterm
+  (evil-define-key 'normal 'global (kbd "<leader> v") 'vterm) ;; Launch Vterm
 
 
   ;; Custom example. Formatting with prettier tool.
@@ -1222,6 +1271,24 @@
       (setq neo-theme 'nerd-icons)         ;; Set the theme to 'nerd-icons' if nerd fonts are available.
     (setq neo-theme 'nerd)))               ;; Otherwise, fall back to the 'nerd' theme.
 
+;;; TREEMACS
+;; Better than Neotree in everyway
+(use-package treemacs
+  :ensure t
+  :straight t
+  :defer t
+  :config
+  (treemacs-follow-mode t))
+
+(use-package treemacs-evil
+  :after (treemacs evil)
+  :ensure t)
+
+(use-package treemacs-all-the-icons
+  :ensure t
+  :straight t
+  :after (treemacs))
+
 
 ;;; NERD ICONS
 ;; The `nerd-icons' package provides a set of icons for use in Emacs. These icons can
@@ -1273,7 +1340,7 @@
   (doom-treemacs-theme "doom-colors")
   :config
   (load-theme 'doom-one t)
-  (doom-themes-neotree-config)
+  (doom-themes-treemacs-config)
   (doom-themes-org-config))
 
 

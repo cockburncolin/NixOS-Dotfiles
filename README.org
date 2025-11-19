@@ -1,2 +1,9 @@
 * My NixOS Configurations
-This repo contains my NixOS system and dotfile configurations.  Includes configs for Emacs, Hyprland and other misc userspace applications.
+This repo contains my NixOS system and dotfile configurations.
+
+Includes configurations for:
+- Emacs
+- Hyprland
+- Ghostty
+- Neovim
+- and many more...

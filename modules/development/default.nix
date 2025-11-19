@@ -10,7 +10,7 @@ in
 {
 
   imports = [
-    ./kotlin.nix
+    ./rust.nix
     ./zig.nix
   ];
 
@@ -19,7 +19,9 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       alejandra
+      clang-tools
       direnv
+      gcc
       git
       lazygit
       man-pages

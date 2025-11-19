@@ -1,17 +1,29 @@
-export GOPATH=$HOME/.local/go
-export PATH=$PATH:$GOPATH/bin:$HOME/.cargo/bin/
+#
+# ~/.bashrc
+#
 
-_direnv_hook() {
-  local previous_exit_status=$?;
-  trap -- '' SIGINT;
-  eval "$(direnv export bash)";
-  trap - SIGINT;
-  return $previous_exit_status;
-};
-if [[ ";${PROMPT_COMMAND[*]:-};" != *";_direnv_hook;"* ]]; then
-  if [[ "$(declare -p PROMPT_COMMAND 2>&1)" == "declare -a"* ]]; then
-    PROMPT_COMMAND=(_direnv_hook "${PROMPT_COMMAND[@]}")
-  else
-    PROMPT_COMMAND="_direnv_hook${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
-  fi
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+## Setup exec paths ##
+export GOPATH=$HOME/.local/go
+
+if [[ -d $GOPATH ]]; then
+    export PATH="$GOPATH/bin:$PATH"
 fi
+
+if [[ -d "$HOME/.local/bin" ]]; then
+	export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Include cargo 
+if [[ -f "$HOME/.cargo/env" ]]; then
+	. "$HOME/.cargo/env"
+fi
+
+alias emacs="emacsclient -r -n"
+export EDITOR=emacs
